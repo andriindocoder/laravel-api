@@ -24,7 +24,7 @@ class PollsController extends Controller
         $response['poll'] = $poll;
         $response['questions'] = $poll->questions;
         // $response = new PollResource($response, 200);
-        return $response()->json($response, 200);
+        return response()->json($response, 200);
     }
 
     public function store(Request $request){
