@@ -41,4 +41,8 @@ class PollsController extends Controller
     	$poll->delete();
     	return response()->json(null, 204);
     }
+
+    public function errors(){
+        return response()->json(['msg' => 'Payment is Required'], 501);
+    }
 }
