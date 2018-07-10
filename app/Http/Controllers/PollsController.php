@@ -10,7 +10,7 @@ use Validator;
 class PollsController extends Controller
 {
     public function index(){
-    	return response()->json(Poll::get(), 200);
+    	return response()->json(Poll::paginate(1), 200);
     }
 
     public function show($id){
@@ -23,7 +23,7 @@ class PollsController extends Controller
         $poll = Poll::with('questions')->findOrFail($id);
         $response['poll'] = $poll;
         $response['questions'] = $poll->questions;
-        $response = new PollResource($response, 200);
+        // $response = new PollResource($response, 200);
         return $response()->json($response, 200);
     }
 
